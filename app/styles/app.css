@@ -1,1 +1,18 @@
 /* Ember supports plain CSS out of the box. More info: https://cli.emberjs.com/release/advanced-use/stylesheets/ */
+
+.button {
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    color: #fff;
+    background: #4c4b4b;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 0;
+    opacity: 0.9;
+}
+  
+.button:hover {
+    opacity: 1;
+}
