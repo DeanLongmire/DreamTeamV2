@@ -1,3 +1,11 @@
 <div class="page-title">
     <PageTitle @title="Register" />
 </div>
+
+<div class="login-box">
+    <input type="text" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+    <input type="submit" value="Register" id="login-button" {{action "loginClick"}}>
+    <p class="message">Already a user? <LinkTo @route="login" class="sub-text-link">Login</LinkTo></p>
+</div>
