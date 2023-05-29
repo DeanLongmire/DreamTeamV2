@@ -5,5 +5,5 @@
     <input type="text" id="username" placeholder="Username" required>
     <input type="password" id="password" placeholder="Password" required>
     <input type="submit" value="Login" id="login-button" {{action "loginClick"}}>
-    <p class="message"></p>
+    <p class="message">Don't have an account? <LinkTo @route="register" class="sub-text-link">Register</LinkTo></p>
 </div>
