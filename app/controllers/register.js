@@ -7,8 +7,8 @@ export default class RegisterController extends Controller {
 
     @action
     loginClick() {
-        fetch("http://localhost:5000/users/login", {
-            method: 'GET',
+        fetch("http://localhost:5000/users/register", {
+            method: 'POST',
         })
         .then(response => {
             if(response.ok)
