@@ -1,6 +1,7 @@
 <div class="page-title">
     <PageTitle @title="Login" />
 </div>
+
 <div class="login-box">
     <input type="text" id="email" placeholder="Email" value={{this.email}} {{on "input" this.updateEmail}} required>
     <input type="password" id="password" placeholder="Password" value={{this.password}} {{on "input" this.updatePassword}} required>
