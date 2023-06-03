@@ -12,4 +12,5 @@ Router.map(function () {
   this.route('team-home');
   this.route('profile');
   this.route('userTeams');
+  this.route('404');
 });

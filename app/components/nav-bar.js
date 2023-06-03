@@ -39,6 +39,6 @@ export default class NavBehavior extends Component {
   get checkPage() {
     const currentRouteName = this.router.currentRouteName;
     console.log(currentRouteName);
-    return currentRouteName === 'index' || currentRouteName === 'login' || currentRouteName === 'register';
+    return currentRouteName === 'index' || currentRouteName === 'login' || currentRouteName === 'register' || currentRouteName === '404';
   }
 }

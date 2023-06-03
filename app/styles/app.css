@@ -33,6 +33,11 @@ html, body {
     height: 100%;
 }
 
+.image-center-container {
+    display: flex;
+    justify-content: center;
+}
+
 .login-box {
     width: 300px;
     height: 300px;
