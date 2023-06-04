@@ -25,6 +25,10 @@ export default class RegisterController extends Controller {
                 console.log("Account Created!");
                 this.router.transitionTo('team-home');
             }   
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            this.router.transitionTo('connection-refused');
         });
     }
 
