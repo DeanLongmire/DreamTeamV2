@@ -24,7 +24,15 @@ export default class LoginController extends Controller {
             {
                 console.log("Connected!");
                 this.router.transitionTo('team-home');
+            }
+            else if(response.status == 404)
+            {
+                this.router.transitionTo('404');
             }   
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            this.router.transitionTo('connection-refused');
         });
     }
 

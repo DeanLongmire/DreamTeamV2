@@ -12,6 +12,13 @@
     margin: 0 auto;
 }
 
+.error-page-msg {
+    display: flex;
+    justify-content: center;
+    color: white;
+    margin-top: 50px;
+}
+
 .footer {
     background-color: #ff8000;
     height: 30px;
