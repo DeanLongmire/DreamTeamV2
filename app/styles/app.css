@@ -136,3 +136,14 @@ html, body {
     color: blue;
 }
 
+table, th, td {
+    border: 1px solid black;
+}
+
+.table-container {
+    display: flex;
+    background-color: white;
+    height: auto;
+    width: 80vw;
+}
+

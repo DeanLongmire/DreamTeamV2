@@ -23,7 +23,7 @@ export default class LoginController extends Controller {
             if(response.ok)
             {
                 console.log("Connected!");
-                this.router.transitionTo('team-home');
+                this.router.transitionTo('user-teams');
             }
             else if(response.status == 404)
             {
