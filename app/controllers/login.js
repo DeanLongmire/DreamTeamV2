@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 
 export default class LoginController extends Controller {
     @service router;
+    @tracked errorMessage = "";
     @tracked credentials = {
         email: "",
         password: ""
@@ -27,8 +28,12 @@ export default class LoginController extends Controller {
             }
             else if(response.status == 400)
             {
-                this.router.transitionTo('404');
-            }   
+                this.errorMessage = "*Email Not Found*";
+            }
+            else if(response.status == 401)
+            {
+                this.errorMessage = "*Wrong Password*";
+            }     
         })
         .catch((error) => {
             console.error('Error:', error);

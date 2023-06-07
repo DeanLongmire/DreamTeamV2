@@ -8,3 +8,4 @@
     <input type="submit" value="Login" id="login-button" {{action "loginClick"}}>
     <p class="message">Don't have an account? <LinkTo @route="register" class="sub-text-link">Register</LinkTo></p>
 </div>
+<div id="login-error" class="login-error-message">{{this.errorMessage}}</div>
