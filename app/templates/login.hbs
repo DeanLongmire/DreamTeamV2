@@ -3,8 +3,8 @@
 </div>
 
 <div class="login-box">
-    <input type="text" id="email" placeholder="Email" value={{this.email}} {{on "input" this.updateEmail}} required>
-    <input type="password" id="password" placeholder="Password" value={{this.password}} {{on "input" this.updatePassword}} required>
+    <Input @value={{this.credentials.email}} placeholder="Email" />
+    <Input @value={{this.credentials.password}} @type="password" placeholder="Password" />
     <input type="submit" value="Login" id="login-button" {{action "loginClick"}}>
     <p class="message">Don't have an account? <LinkTo @route="register" class="sub-text-link">Register</LinkTo></p>
 </div>

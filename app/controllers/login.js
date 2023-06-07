@@ -40,14 +40,4 @@ export default class LoginController extends Controller {
             this.router.transitionTo('connection-refused');
         });
     }
-
-    @action
-    updateEmail(event) {
-        this.credentials.email = event.target.value;
-    }
-
-    @action
-    updatePassword(event) {
-        this.credentials.password = event.target.value;
-    }
 }

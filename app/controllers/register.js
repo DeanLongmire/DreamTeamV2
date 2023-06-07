@@ -7,7 +7,8 @@ export default class RegisterController extends Controller {
     @service router;
     @tracked credentials = {
         email: "",
-        password: ""
+        password: "",
+        confirmPassword: ""
     };
 
     @action
@@ -30,15 +31,5 @@ export default class RegisterController extends Controller {
             console.error('Error:', error);
             this.router.transitionTo('connection-refused');
         });
-    }
-
-    @action
-    updateEmail(event) {
-        this.credentials.email = event.target.value;
-    }
-
-    @action
-    updatePassword(event) {
-        this.credentials.password = event.target.value;
     }
 }
