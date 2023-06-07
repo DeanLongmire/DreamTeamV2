@@ -25,7 +25,7 @@ export default class LoginController extends Controller {
                 console.log("Connected!");
                 this.router.transitionTo('user-teams');
             }
-            else if(response.status == 404)
+            else if(response.status == 400)
             {
                 this.router.transitionTo('404');
             }   
