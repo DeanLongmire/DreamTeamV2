@@ -12,5 +12,6 @@ Router.map(function () {
   this.route('team-home');
   this.route('profile');
   this.route('user-teams');
+  this.route('join-team');
   this.route('connection-refused');
 });
