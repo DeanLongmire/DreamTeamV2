@@ -9,9 +9,14 @@ export default class Router extends EmberRouter {
 Router.map(function () {
   this.route('login');
   this.route('register');
-  this.route('team-home');
-  this.route('profile');
-  this.route('user-teams');
-  this.route('join-team');
+  this.route('user', { path: ':id' }, function () {
+    this.route('leagues', function () {
+      this.route('league', { path: ':id' }, function () {
+        this.route('teams', function () {
+          this.route('team', { path: ':id' });
+        })
+      })
+    })
+  });
   this.route('connection-refused');
 });
