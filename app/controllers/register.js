@@ -24,7 +24,7 @@ export default class RegisterController extends Controller {
             if(response.ok)
             {
                 console.log("Account Created!");
-                this.router.transitionTo('user-teams');
+                this.router.transitionTo();
             }   
         })
         .catch((error) => {

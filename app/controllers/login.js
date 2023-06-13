@@ -23,16 +23,14 @@ export default class LoginController extends Controller {
         .then(response => {
             if(response.ok)
             {
-                console.log("Connected!");
-                this.router.transitionTo('user-teams');
-            }
-            else if(response.status == 400)
-            {
-                this.errorMessage = "*Email Not Found*";
+                response.json().then(data => {
+                    console.log("Connected!");
+                    this.router.transitionTo('user', data.id);
+                })
             }
             else if(response.status == 401)
             {
-                this.errorMessage = "*Wrong Password*";
+                this.errorMessage = "*Wrong Email or Password*";
             }     
         })
         .catch((error) => {
