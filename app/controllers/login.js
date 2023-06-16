@@ -4,38 +4,26 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class LoginController extends Controller {
-    @service router;
-    @tracked errorMessage = "";
-    @tracked credentials = {
-        email: "",
-        password: ""
-    }
+  @service router;
+  @service catalog;
+  @tracked errorMessage = '';
+  @tracked credentials = {
+    email: '',
+    password: '',
+  };
 
-    @action
-    loginClick() {
-        fetch("http://localhost:5000/users/login", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(this.credentials)
-        })
-        .then(response => {
-            if(response.ok)
-            {
-                response.json().then(data => {
-                    console.log("Connected!");
-                    this.router.transitionTo('user', data.id);
-                })
-            }
-            else if(response.status == 401)
-            {
-                this.errorMessage = "*Wrong Email or Password*";
-            }     
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-            this.router.transitionTo('connection-refused');
-        });
-    }
+  @action
+  async loginClick() {
+    await this.catalog.fetchUserLogin(this.credentials, (status, data) => {
+      if (status === 'valid') {
+        this.router.transitionTo('user', data.id);
+      }
+      else if (status === 'invalid') {
+        this.errorMessage = '*Wrong Email or Password*';
+      }
+      else {
+        this.router.transitionTo('connection-refused');
+      }
+    });
+  }
 }
