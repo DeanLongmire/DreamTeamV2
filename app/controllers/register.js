@@ -24,7 +24,8 @@ export default class RegisterController extends Controller {
         if (response.ok) {
           console.log('Account Created!');
           this.router.transitionTo();
-        }``
+        }
+        ``;
       })
       .catch((error) => {
         console.error('Error:', error);
