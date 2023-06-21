@@ -3,7 +3,10 @@ import { tracked } from '@glimmer/tracking';
 import User from 'dream-team-v2/models/user';
 
 export default class CatalogService extends Service {
-  @tracked storage = [];
+  @tracked storage = {
+    users: [],
+    leagues: []
+  }
 
   async fetchUserLogin(userData, callback) {
     fetch('http://localhost:5000/users/login', {
@@ -38,6 +41,10 @@ export default class CatalogService extends Service {
       lastName: 'Longmire',
     });
 
-    this.storage.push(loggedInUser);
+    this.storage.users.push(loggedInUser);
+  }
+
+  getUsers() {
+    return this.storage.users;
   }
 }

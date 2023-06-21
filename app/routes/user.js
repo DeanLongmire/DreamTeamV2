@@ -1,11 +1,18 @@
 import Route from '@ember/routing/route';
-
+import { inject as service } from '@ember/service';
 export default class UserRoute extends Route {
-  model() {
-    let user = {
-      name: 'Dean'
-    };
+  @service catalog;
+  @service session;
 
-    return user;
+  beforeModel(transition) {
+    this.session.requireAuthentication(transition, 'login');
+  }
+
+  async model() {
+    let users = await this.catalog.getUsers();
+
+    console.log(users);
+
+    return { users };
   }
 }
