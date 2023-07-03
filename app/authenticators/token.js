@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default class CustomAuthenticator extends Base {
   @service router;
+  @service session;
 
   restore(data) {}
 
@@ -18,6 +19,8 @@ export default class CustomAuthenticator extends Base {
 
     if (response.ok) {
       response.json().then((data) => {
+        const { token } = data;
+        this.session.set('token', token);
         this.router.transitionTo('user', data.id);
       });
     } else {
