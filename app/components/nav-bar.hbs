@@ -1,9 +1,9 @@
 <nav class="navbar">
-    {{#if this.checkPage}}
-        <LinkTo @route="index" class="nav-button">Home</LinkTo>
+    <LinkTo @route="index" class="nav-button">Home</LinkTo>
+    {{#if this.session.isAuthenticated}}
+        <button {{action this.logout}}>Logout</button>
+    {{else}}
         <LinkTo @route="login" class="nav-button">Login</LinkTo>
         <LinkTo @route="register" class="nav-button">Register</LinkTo>
-    {{else}}
-        <LinkTo @route="index" class="nav-button">Home</LinkTo>
     {{/if}}
 </nav>

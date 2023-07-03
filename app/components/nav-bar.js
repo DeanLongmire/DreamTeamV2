@@ -5,6 +5,9 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class NavBehavior extends Component {
+  @service session;
+  @service router;
+
   @tracked navbarHidden = false;
   prevScrollPos = window.pageYOffset;
 
@@ -34,7 +37,10 @@ export default class NavBehavior extends Component {
     this.prevScrollPos = currentScrollPos;
   }
 
-  @service router;
+  @action
+  logout() {
+    return this.session.invalidate();
+  }
 
   get checkPage() {
     const currentRouteName = this.router.currentRouteName;

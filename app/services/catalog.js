@@ -5,8 +5,8 @@ import User from 'dream-team-v2/models/user';
 export default class CatalogService extends Service {
   @tracked storage = {
     users: [],
-    leagues: []
-  }
+    leagues: [],
+  };
 
   async fetchUserLogin(userData, callback) {
     fetch('http://localhost:5000/users/login', {
