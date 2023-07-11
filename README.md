@@ -3,6 +3,8 @@
 This README outlines the details of collaborating on this Ember application.
 A short introduction of this app could easily go here.
 
+https://stackoverflow.com/questions/55672881/ember-simple-auth-oauth2-session-lost-on-refresh
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
