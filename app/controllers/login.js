@@ -19,6 +19,8 @@ export default class LoginController extends Controller {
   async loginClick() {
     try {
       await this.session.authenticate('authenticator:token', this.credentials);
+      const expirationTime = 14 * 24 * 60 * 60;
+      this.session.store.cookieExpirationTime =  expirationTime;
     } catch (error) {
       this.error = error;
     }

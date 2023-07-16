@@ -14,6 +14,11 @@ module.exports = function (environment) {
       },
     },
 
+    'ember-simple-auth': {
+      // Ember Simple Auth configuration options go here
+      store: 'session-stores:application',
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

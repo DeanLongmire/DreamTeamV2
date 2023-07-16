@@ -11,7 +11,7 @@ export default class UserRoute extends Route {
   async model() {
     let users = await this.catalog.getUsers();
 
-    console.log(users);
+    // console.log(users);
 
     return { users };
   }
