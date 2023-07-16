@@ -7,20 +7,14 @@ export default class UserRoute extends Route {
   @service router;
 
   beforeModel(transition) {
-    this.session.checkAuthentication()
-    .then(() => {
-      return;
-    })
-    .catch(() => {
+    if(!this.session.isAuthenticated()) {
       this.router.transitionTo('login');
-    })
+    }
   }
 
   async model() {
     let users = await this.catalog.getUsers();
-
     console.log(users);
-
     return { users };
   }
 }
