@@ -36,6 +36,11 @@ export default class NavBehavior extends Component {
     this.prevScrollPos = currentScrollPos;
   }
 
+  @action
+  logout() {
+    this.session.invalidate();
+  }
+
   get isAuthenticated() {
     const currentRouteName = this.router.currentRouteName; //need this for bar to change live
     if(this.session.isAuthenticated()) {
