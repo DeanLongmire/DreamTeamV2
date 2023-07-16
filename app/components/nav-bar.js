@@ -6,6 +6,8 @@ import { inject as service } from '@ember/service';
 
 export default class NavBehavior extends Component {
   @tracked navbarHidden = false;
+  @service session;
+  @service router;
   prevScrollPos = window.pageYOffset;
 
   constructor() {
@@ -34,16 +36,13 @@ export default class NavBehavior extends Component {
     this.prevScrollPos = currentScrollPos;
   }
 
-  @service router;
-
-  get checkPage() {
-    const currentRouteName = this.router.currentRouteName;
-    console.log(currentRouteName);
-    return (
-      currentRouteName === 'index' ||
-      currentRouteName === 'login' ||
-      currentRouteName === 'register' ||
-      currentRouteName === 'connection-refused'
-    );
+  get isAuthenticated() {
+    const currentRouteName = this.router.currentRouteName; //need this for bar to change live
+    if(this.session.isAuthenticated()) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 }
