@@ -20,6 +20,8 @@ export default class CatalogService extends Service {
         if (response.ok) {
           response.json().then((data) => {
             console.log('Connected!');
+            let { token } = data;
+            document.cookie = `access-token=${token}`;
             this.addUser(data);
             callback('valid', data);
           });
@@ -34,6 +36,7 @@ export default class CatalogService extends Service {
   }
 
   addUser(user) {
+    console.log(user);
     let loggedInUser = new User({
       id: user.id,
       username: 'Deanathan',

@@ -3,9 +3,16 @@ import { inject as service } from '@ember/service';
 export default class UserRoute extends Route {
   @service catalog;
   @service session;
+  @service router;
 
   beforeModel(transition) {
-    this.session.requireAuthentication(transition, 'login');
+    this.session.checkAuthentication()
+    .then(() => {
+      return;
+    })
+    .catch(() => {
+      this.router.transitionTo('login');
+    })
   }
 
   async model() {
