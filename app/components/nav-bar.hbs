@@ -1,7 +1,7 @@
 <nav class="navbar">
     <LinkTo @route="index" class="nav-button">Home</LinkTo>
     {{#if this.isAuthenticated}}
-        <button {{action this.logout}}>Logout</button>
+        <button class="nav-button" {{on "click" this.logout}}>Logout</button>
     {{else}}
         <LinkTo @route="login" class="nav-button">Login</LinkTo>
         <LinkTo @route="register" class="nav-button">Register</LinkTo>

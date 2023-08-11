@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 
 export default class NavBehavior extends Component {
   @tracked navbarHidden = false;
+  @tracked isLoggedIn = false;
   @service session;
   @service router;
   prevScrollPos = window.pageYOffset;
@@ -38,12 +39,15 @@ export default class NavBehavior extends Component {
 
   @action
   logout() {
+    console.log("Invalidate");
+    this.isLoggedIn = false;
     this.session.invalidate();
   }
 
   get isAuthenticated() {
     const currentRouteName = this.router.currentRouteName; //need this for bar to change live
     if(this.session.isAuthenticated()) {
+      this.isLoggedIn = true;
       return true;
     }
     else {

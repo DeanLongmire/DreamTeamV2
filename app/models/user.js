@@ -1,12 +1,7 @@
-import Model from '@ember-data/model';
+import Model, { attr } from '@ember-data/model';
 
-export class User {
-    constructor({ id, username, firstName, lastName }) {
-      this.id = id;
-      this.username = username;
-      this.firstName = firstName;
-      this.lastName = lastName;
-    }
+export default class UserModel extends Model {
+  @attr('string') username;
+  @attr('string') firstName;
+  @attr('string') lastName;
 }
-
-export default class UserModel extends Model {}

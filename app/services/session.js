@@ -16,7 +16,13 @@ export default class SessionService extends Service {
   }
 
   async invalidate() {
+    console.log("INVALIDATE");
     document.cookie = `access-token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
-    this.router.transitionTo('index');
+    if(this.router.currentRouteName === 'index') {
+      this.router.transitionTo('login');
+    }
+    else {
+      this.router.transitionTo('index');
+    }
   }
 }
