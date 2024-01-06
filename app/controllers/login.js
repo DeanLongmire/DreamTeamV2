@@ -25,11 +25,5 @@ export default class LoginController extends Controller {
         this.router.transitionTo('connection-refused');
       }
     });
-
-    try {
-      await this.session.authenticate('authenticator:token', this.credentials);
-    } catch(error) {
-      this.error = error;
-    }
   }
 }
