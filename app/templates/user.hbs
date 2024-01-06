@@ -1,7 +1,3 @@
-<h2>IDK What To Call This Page Yet</h2>
-{{#each @model.users as |user|}}
-  <p>{{user.username}}</p>
-  <p>{{user.firstName}}</p>
-  <p>{{user.lastName}}</p>
-  <p>{{user.id}}</p>
-{{/each}}
+<h2>My Teams</h2>
+<p class="page-title">Welcome {{@model.userLoggedIn.firstname}} {{@model.userLoggedIn.lastname}}</p>
+<p>{{@model.userLoggedIn.username}}</p>
